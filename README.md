@@ -19,10 +19,10 @@ Recreate a virtual city in blockchain.
 
 ##Pending app
 
-- [] Linting parallel
-- [] Git hooks ( husky)
+- [ ] Linting parallel
+- [ ] Git hooks ( husky)
 
 ##Pending blockchain
-- [] truffle
-- [] token contract
-- [] transactions contract
+- [ ] truffle
+- [ ] token contract
+- [ ] transactions contract
