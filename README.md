@@ -17,12 +17,12 @@ Recreate a virtual city in blockchain.
 - [x] Webpack 2
 - [x] babel
 
-##Pending app
+## Pending app
 
 - [ ] Linting parallel
 - [ ] Git hooks ( husky)
 
-##Pending blockchain
+## Pending blockchain
 - [ ] truffle
 - [ ] token contract
 - [ ] transactions contract
