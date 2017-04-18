@@ -11,8 +11,6 @@ Recreate a virtual city in blockchain.
 - [x] Redux
 - [x] Redux-form
 - [x] Material-ui
-- [x] Redux Thunk
-- [x] Hot Module Replacement
 - [x] Deploy to surge
 - [x] Webpack 2
 - [x] babel
