@@ -98,7 +98,7 @@ export class Home extends React.Component {
 
                         <a-entity id="cameraWrapper" position="-1.4 1.41 2.92"
                                   rotation="-12.834254610930437 -16.844959176846217 0">
-                            <a-entity id="camera" camera look-controls wasd-controls="fly: true"></a-entity>
+                            <a-entity id="camera" touch-controls camera look-controls wasd-controls="fly: true"></a-entity>
                         </a-entity>
 
                     </Scene>
