@@ -52,7 +52,7 @@
   "scripts": {
     "testrpc": "testrpc --account='0xfeb72ffb6bb482e3d4b5f0168f24ece904e8ddb7d3076362b94a209078666de6,5000000000000000000000000'",
     "start-dev": "npm-run-all --parallel start testrpc",
-    "start": "webpack-dev-server --open --port=8080 --content-base=build",
+    "start": "webpack-dev-server --open --port=80 --content-base=build",
     "build": "webpack",
     "lint": "eslint",
     "publish": "surge -p ./public -d ethcity.surge.sh"
