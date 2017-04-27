@@ -27,15 +27,45 @@ module.exports = {
         new HtmlWebpackHarddiskPlugin({
             outputPath: buildPath
         }),
-        new CopyWebpackPlugin([{ from: staticsPath }])
+        new CopyWebpackPlugin([{ from: staticsPath }]),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.DefinePlugin({
+          '__DEV__': true,
+          'process.env': {
+            'NODE_ENV': JSON.stringify('development')
+          }
+        })
         ],
+    resolve: {
+      extensions: ['.sol','.jsx', '.js']
+    },
     module: {
         rules: [
-            {
-                test: /\.js$/,
-                exclude: [/node_modules/],
-                loader: 'babel-loader'
-            }
+          {
+            test: /\.js(x)?$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader'
+          },
+          {
+            test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+            loader: 'url-loader'
+          },
+          {
+            test: /\.json$/,
+            loader: 'json-loader'
+          },
+          {
+            test: /\.(s)?css$/,
+            loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
+          },
+          {
+            test: /\.(png|jpg)$/,
+            loader: 'url-loader?limit=8192'
+          },
+          {
+            test: /\.sol/,
+            loaders: ['json-loader', 'truffle-solidity-loader?network=development']
+          }
         ]
     }
 };

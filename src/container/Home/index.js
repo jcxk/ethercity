@@ -8,6 +8,22 @@ import Drawer from 'material-ui/Drawer';
 import Form from './Form';
 import * as AppActions from "../../actions/app";
 
+//truffle test
+
+import truffleConfig from '../../../truffle.js';
+import Web3 from 'web3';
+import MetaCoin from '../../../contracts/MetaCoin.sol';
+if (typeof window !== 'undefined' &&
+  typeof window.web3 !== 'undefined') {
+  // Use Mist/MetaMask's provider
+  web3 = new Web3(window.web3.currentProvider)
+} else {
+  // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+  web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'))
+}
+
+
+
 export class Home extends React.Component {
 
  constructor(props) {
@@ -29,7 +45,22 @@ export class Home extends React.Component {
 
     componentDidMount() {
         //const { dispatch } = this.props;
-
+      var web3Location = `http://${truffleConfig.rpc.host}:${truffleConfig.rpc.port}`;
+      if (typeof web3 !== 'undefined') {
+        web3Provided = new Web3(web3.currentProvider);
+      } else {
+        web3Provided = new Web3(new Web3.providers.HttpProvider(web3Location))
+      }
+      MetaCoin.setProvider(web3Provided.currentProvider);
+      var meta = MetaCoin.deployed()
+      return new Promise((resolve, reject) => {
+        meta.getBalance.call(account, {from: account}).then(function (value) {
+          resolve({ account: value.valueOf() })
+        }).catch(function (e) {
+          console.log(e)
+          reject()
+        })
+      });
         this.props.dispatch(AppActions.fetchCity());
     }
 

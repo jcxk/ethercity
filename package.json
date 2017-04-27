@@ -33,7 +33,10 @@
     "redux-form": "^6.6.2",
     "redux-form-material-ui": "^4.1.3",
     "redux-thunk": "^2.2.0",
-    "truffle": "^3.2.1"
+    "truffle-contract": "^1.1.6",
+    "truffle-solidity-loader": "0.0.8",
+    "truffle-artifactor": "^2.1.2",
+    "web3": "^0.18.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
@@ -50,9 +53,9 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "testrpc": "testrpc --account='0xfeb72ffb6bb482e3d4b5f0168f24ece904e8ddb7d3076362b94a209078666de6,5000000000000000000000000'",
+    "testrpc": "testrpc  - i 111 ",
     "start-dev": "npm-run-all --parallel start testrpc",
-    "start": "webpack-dev-server --open --port=80 --content-base=build",
+    "start": "webpack-dev-server --hot --open --port=8080 --content-base build",
     "build": "webpack",
     "lint": "eslint",
     "publish": "surge -p ./public -d ethcity.surge.sh"
@@ -64,5 +67,10 @@
   "keywords": [
     "aframe",
     "react"
-  ]
+  ],
+  "standards": {
+    "globals": [
+      "web3"
+    ]
+  }
 }
